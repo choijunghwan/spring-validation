@@ -32,8 +32,8 @@ class AddressTest {
             System.out.println("violation.getConstraintDescriptor() = " + violation.getConstraintDescriptor());
         }
 
-        assertThat(1).isEqualTo(violations.size());
-        assertThat("공백일 수 없습니다").isEqualTo(violations.iterator().next().getMessage());
+        assertThat(violations.size()).isEqualTo(1);
+        assertThat(violations).extracting("message").containsOnly("공백일 수 없습니다");
     }
 
     @Test
@@ -46,8 +46,8 @@ class AddressTest {
             System.out.println("violation.getConstraintDescriptor() = " + violation.getConstraintDescriptor());
         }
 
-        assertThat(1).isEqualTo(violations.size());
-        assertThat("공백일 수 없습니다").isEqualTo(violations.iterator().next().getMessage());
+        assertThat(violations.size()).isEqualTo(1);
+        assertThat(violations).extracting("message").containsOnly("공백일 수 없습니다");
     }
 
     @Test
@@ -60,8 +60,8 @@ class AddressTest {
             System.out.println("violation.getConstraintDescriptor() = " + violation.getConstraintDescriptor());
         }
 
-        assertThat(1).isEqualTo(violations.size());
-        assertThat("공백일 수 없습니다").isEqualTo(violations.iterator().next().getMessage());
+        assertThat(violations.size()).isEqualTo(1);
+        assertThat(violations).extracting("message").containsOnly("공백일 수 없습니다");
     }
 
     @Test
@@ -74,7 +74,7 @@ class AddressTest {
             System.out.println("violation.getConstraintDescriptor() = " + violation.getConstraintDescriptor());
         }
 
-        assertThat(0).isEqualTo(violations.size());
+        assertThat(violations.size()).isEqualTo(0);
     }
 
     @Test
@@ -87,8 +87,8 @@ class AddressTest {
             System.out.println("violation.getConstraintDescriptor() = " + violation.getConstraintDescriptor());
         }
 
-        assertThat(1).isEqualTo(violations.size());
-        assertThat("비어 있을 수 없습니다").isEqualTo(violations.iterator().next().getMessage());
+        assertThat(violations.size()).isEqualTo(1);
+        assertThat(violations).extracting("message").containsOnly("비어 있을 수 없습니다");
     }
 
     @Test
@@ -101,8 +101,8 @@ class AddressTest {
             System.out.println("violation.getConstraintDescriptor() = " + violation.getConstraintDescriptor());
         }
 
-        assertThat(1).isEqualTo(violations.size());
-        assertThat("비어 있을 수 없습니다").isEqualTo(violations.iterator().next().getMessage());
+        assertThat(violations.size()).isEqualTo(1);
+        assertThat(violations).extracting("message").containsOnly("비어 있을 수 없습니다");
     }
 
     @Test
@@ -115,7 +115,7 @@ class AddressTest {
             System.out.println("violation.getConstraintDescriptor() = " + violation.getConstraintDescriptor());
         }
 
-        assertThat(0).isEqualTo(violations.size());
+        assertThat(violations.size()).isEqualTo(0);
     }
 
     @Test
@@ -128,8 +128,8 @@ class AddressTest {
             System.out.println("violation.getConstraintDescriptor() = " + violation.getConstraintDescriptor());
         }
 
-        assertThat(1).isEqualTo(violations.size());
-        assertThat("널이어서는 안됩니다").isEqualTo(violations.iterator().next().getMessage());
+        assertThat(violations.size()).isEqualTo(1);
+        assertThat(violations).extracting("message").containsOnly("널이어서는 안됩니다");
     }
 
     @Test
@@ -142,7 +142,7 @@ class AddressTest {
             System.out.println("violation.getConstraintDescriptor() = " + violation.getConstraintDescriptor());
         }
 
-        assertThat(0).isEqualTo(violations.size());
+        assertThat(violations.size()).isEqualTo(0);
     }
 
     @Test
@@ -155,7 +155,7 @@ class AddressTest {
             System.out.println("violation.getConstraintDescriptor() = " + violation.getConstraintDescriptor());
         }
 
-        assertThat(0).isEqualTo(violations.size());
+        assertThat(violations.size()).isEqualTo(0);
     }
 
     @Test
@@ -168,7 +168,7 @@ class AddressTest {
             System.out.println("violation.getConstraintDescriptor() = " + violation.getConstraintDescriptor());
         }
 
-        assertThat(0).isEqualTo(violations.size());
+        assertThat(violations.size()).isEqualTo(0);
     }
 
 }

@@ -47,8 +47,8 @@ class AnnotationSizeTest {
             System.out.println("violation.getConstraintDescriptor() = " + violation.getConstraintDescriptor());
         }
 
-        assertThat(1).isEqualTo(violations.size());
-        assertThat("크기가 3에서 6 사이여야 합니다").isEqualTo(violations.iterator().next().getMessage());
+        assertThat(violations.size()).isEqualTo(1);
+        assertThat(violations).extracting("message").containsOnly("크기가 3에서 6 사이여야 합니다");
     }
 
     @Test
@@ -68,8 +68,8 @@ class AnnotationSizeTest {
             System.out.println("violation.getConstraintDescriptor() = " + violation.getConstraintDescriptor());
         }
 
-        assertThat(1).isEqualTo(violations.size());
-        assertThat("크기가 3에서 6 사이여야 합니다").isEqualTo(violations.iterator().next().getMessage());
+        assertThat(violations.size()).isEqualTo(1);
+        assertThat(violations).extracting("message").containsOnly("크기가 3에서 6 사이여야 합니다");
     }
 
     @Test
@@ -89,8 +89,8 @@ class AnnotationSizeTest {
             System.out.println("violation.getConstraintDescriptor() = " + violation.getConstraintDescriptor());
         }
 
-        assertThat(1).isEqualTo(violations.size());
-        assertThat("크기가 3에서 6 사이여야 합니다").isEqualTo(violations.iterator().next().getMessage());
+        assertThat(violations.size()).isEqualTo(1);
+        assertThat(violations).extracting("message").containsOnly("크기가 3에서 6 사이여야 합니다");
     }
 
 }
