@@ -16,6 +16,12 @@ class AddressTest {
 
     private static Validator validator;
 
+    /**
+     * 컴퓨터 기본 설정이 한글로 되어 있어 오류메시지가 한글로 나온다.
+     * 오류메시지를 다른 언어로 보고싶으면 Locale을 설정하면 된다.
+     * 예를 들어 영어로 보고싶다면
+     * Locale.setDefault(Locale.US);
+     */
     @BeforeEach
     void setUpValidator() {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
@@ -29,6 +35,10 @@ class AddressTest {
         for (ConstraintViolation<Address> violation : violations) {
             System.out.println("violation = " + violation);
             System.out.println("violation.getMessage() = " + violation.getMessage());
+            // violation 이 발생한 위치
+            System.out.println("violation.getPropertyPath() = " + violation.getPropertyPath());
+            // 대상 클래스
+            System.out.println("violation.getRootBeanClass() = " + violation.getRootBeanClass());
             System.out.println("violation.getConstraintDescriptor() = " + violation.getConstraintDescriptor());
         }
 
