@@ -21,10 +21,10 @@ public class BeanValidationTest {
         item.setPrice(0);
         item.setQuantity(10000);
 
-        Set<ConstraintViolation<Item>> validations = validator.validate(item);
-        for (ConstraintViolation<Item> validation : validations) {
-            System.out.println("validation = " + validation);
-            System.out.println("validation.getMessage() = " + validation.getMessage());
+        Set<ConstraintViolation<Item>> violations = validator.validate(item);
+        for (ConstraintViolation<Item> violation : violations) {
+            System.out.println("violation = " + violation);
+            System.out.println("violation.getMessage() = " + violation.getMessage());
         }
     }
 
