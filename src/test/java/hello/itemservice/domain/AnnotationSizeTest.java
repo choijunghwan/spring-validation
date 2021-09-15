@@ -1,6 +1,5 @@
 package hello.itemservice.domain;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -26,6 +25,25 @@ class AnnotationSizeTest {
     }
 
     @Test
+    void allTooShort() {
+        AnnotationSize annotationSize = new AnnotationSize();
+        annotationSize.setStr("1");
+
+        Set<ConstraintViolation<AnnotationSize>> violations = validator.validate(annotationSize);
+        for (ConstraintViolation<AnnotationSize> violation : violations) {
+            System.out.println("violation = " + violation);
+            System.out.println("violation.getMessage() = " + violation.getMessage());
+            System.out.println("violation.getConstraintDescriptor() = " + violation.getConstraintDescriptor());
+        }
+
+        assertThat(violations.size()).isEqualTo(3);
+        assertThat(violations).extracting("message").
+                contains("크기가 2에서 5 사이여야 합니다",
+                        "크기가 3에서 6 사이여야 합니다",
+                        "크기가 3에서 7 사이여야 합니다");
+    }
+
+    @Test
     void strTooShort() {
         AnnotationSize annotationSize = new AnnotationSize();
         annotationSize.setStr("1");
@@ -48,7 +66,7 @@ class AnnotationSizeTest {
         }
 
         assertThat(violations.size()).isEqualTo(1);
-        assertThat(violations).extracting("message").containsOnly("크기가 3에서 6 사이여야 합니다");
+        assertThat(violations).extracting("message").containsOnly("크기가 2에서 5 사이여야 합니다");
     }
 
     @Test
@@ -90,7 +108,7 @@ class AnnotationSizeTest {
         }
 
         assertThat(violations.size()).isEqualTo(1);
-        assertThat(violations).extracting("message").containsOnly("크기가 3에서 6 사이여야 합니다");
+        assertThat(violations).extracting("message").containsOnly("크기가 3에서 7 사이여야 합니다");
     }
 
 }

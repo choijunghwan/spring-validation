@@ -8,6 +8,7 @@ import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 
+import java.util.Locale;
 import java.util.Set;
 
 import static org.assertj.core.api.Assertions.*;
@@ -24,6 +25,7 @@ class AddressTest {
      */
     @BeforeEach
     void setUpValidator() {
+//        Locale.setDefault(Locale.US);
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         validator = factory.getValidator();
     }
@@ -35,11 +37,10 @@ class AddressTest {
         for (ConstraintViolation<Address> violation : violations) {
             System.out.println("violation = " + violation);
             System.out.println("violation.getMessage() = " + violation.getMessage());
-            // violation 이 발생한 위치
+            System.out.println("violation.getMessageTemplate() = " + violation.getMessageTemplate());
+            System.out.println("violation.getRootBean() = " + violation.getRootBean());
             System.out.println("violation.getPropertyPath() = " + violation.getPropertyPath());
-            // 대상 클래스
             System.out.println("violation.getRootBeanClass() = " + violation.getRootBeanClass());
-            System.out.println("violation.getConstraintDescriptor() = " + violation.getConstraintDescriptor());
         }
 
         assertThat(violations.size()).isEqualTo(1);
