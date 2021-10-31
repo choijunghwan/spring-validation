@@ -18,7 +18,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Constraint(validatedBy = {EnumValidator.class})
 public @interface Enum {
 
-    String message() default "{validation.constraints.Enum.message}";
+    String message() default "Role 타입이 아닙니다.";
 
     Class<?>[] groups() default { };
 
