@@ -41,4 +41,39 @@ class CustomTest {
         assertThat(custom.getAge()).isEqualTo(20);
     }
 
+    @Test
+    public void builderNull() {
+        Custom custom = Custom.builder()
+                .build();
+
+        System.out.println("custom = " + custom);
+    }
+
+    @Test
+    public void builderDefault() {
+        Custom custom = Custom.builder()
+                .name("Custom")
+                .jobs(Arrays.asList("직업"))
+                .build();
+
+        System.out.println("custom = " + custom);
+        assertThat(custom.getName()).isEqualTo("Custom");
+        assertThat(custom.getAge()).isEqualTo(0);
+        assertThat(custom.getCheck()).isEqualTo(false);
+        assertThat(custom.getGender()).isEqualTo(Gender.MAN);
+    }
+
+    @Test
+    public void builderSingular() {
+        Custom custom = Custom.builder()
+                .name("Custom")
+                .job("직업1")
+                .job("직업2")
+                .build();
+
+        System.out.println("custom = " + custom);
+        assertThat(custom.getName()).isEqualTo("Custom");
+        assertThat(custom.getJobs().size()).isEqualTo(2);
+    }
+
 }
